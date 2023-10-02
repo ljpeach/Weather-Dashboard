@@ -8,6 +8,7 @@ var forecast = document.getElementById("forecast").children;
 
 function init() {
     loadHistory();
+    geoAPIcall("Chicago");
 }
 
 function weatherAPIcall(lat, lon) {
@@ -103,13 +104,14 @@ init();
 
 citySearch.addEventListener("submit", function (event) {
     event.preventDefault();
-    if (searchBox.value == "") {
+    var city = searchBox.value.trim();
+    if (city == "") {
         return;
     }
     geoAPIcall(event.target.textContent);
-    if (!historyArr.includes(searchBox.value)) {
-        historyArr.push(searchBox.value);
-        addHistory(searchBox.value);
+    if (!historyArr.includes(city)) {
+        historyArr.push(city);
+        addHistory(city);
         saveHistory();
     }
 });
