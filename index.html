@@ -17,19 +17,19 @@
     <main class="container-fluid row">
         <section id="search" class="col-3">
             <h2 class="m-1">Search for a City:</h2>
-            <form class="border-bottom border-dark border-2 m-1 p-2">
-                <input type="text" class="form-control mb-1" id="citySearch" placeholder="San Diego">
+            <form id="citySearch" class="border-bottom border-dark border-2 m-1 p-2">
+                <input id="searchBox" type="text" class="form-control mb-1" id="citySearch" placeholder="San Diego">
                 <button type="submit" class="btn btn-primary w-100">Search</button>
             </form>
             <ul id="history" class="list-group">
-                <li class="card text-center bg-secondary list-group-item">city</li>
             </ul>
         </section>
         <section id="weatherBox" class="col-9">
             <section id="currentWeather">
                 <div class="card m-3">
-                    <div class="card-body">
+                    <div id="currentWeatherContent" class="card-body">
                         <h5 class="card-title">Location (00/00/0000)</h5>
+                        <img src="" alt="weather icon" class="m-3 w-25">
                         <p class="card-text">Temp: TEMP&degF</p>
                         <p class="card-text">Wind: 0.00 MPH</p>
                         <p class="card-text">Humidity: 00%</p>
@@ -41,35 +41,35 @@
                 <ol id="forecast" class="row list-group-horizontal">
                     <li class="col card text-white bg-dark p-2 m-2 list-group-item">
                         <h5 class="card-title">Location (00/00/0000)</h5>
-                        <img src="" alt="weather icon" class="m-3">
+                        <img src="" alt="weather icon" class="m-3 w-25">
                         <p class="card-text">Temp: TEMP&degF</p>
                         <p class="card-text">Wind: 0.00 MPH</p>
                         <p class="card-text">Humidity: 00%</p>
                     </li>
                     <li class="col card text-white bg-dark p-2 m-2 list-group-item">
                         <h5 class="card-title">Location (00/00/0000)</h5>
-                        <img src="" alt="weather icon" class="m-3">
+                        <img src="" alt="weather icon" class="m-3 w-25">
                         <p class="card-text">Temp: TEMP&degF</p>
                         <p class="card-text">Wind: 0.00 MPH</p>
                         <p class="card-text">Humidity: 00%</p>
                     </li>
                     <li class="col card text-white bg-dark p-2 m-2 list-group-item">
                         <h5 class="card-title">Location (00/00/0000)</h5>
-                        <img src="" alt="weather icon" class="m-3">
+                        <img src="" alt="weather icon" class="m-3 w-25">
                         <p class="card-text">Temp: TEMP&degF</p>
                         <p class="card-text">Wind: 0.00 MPH</p>
                         <p class="card-text">Humidity: 00%</p>
                     </li>
                     <li class="col card text-white bg-dark p-2 m-2 list-group-item">
                         <h5 class="card-title">Location (00/00/0000)</h5>
-                        <img src="" alt="weather icon" class="m-3">
+                        <img src="" alt="weather icon" class="m-3 w-25">
                         <p class="card-text">Temp: TEMP&degF</p>
                         <p class="card-text">Wind: 0.00 MPH</p>
                         <p class="card-text">Humidity: 00%</p>
                     </li>
                     <li class="col card text-white bg-dark p-2 m-2 list-group-item">
                         <h5 class="card-title">Location (00/00/0000)</h5>
-                        <img src="" alt="weather icon" class="m-3">
+                        <img src="" alt="weather icon" class="m-3 w-25">
                         <p class="card-text">Temp: TEMP&degF</p>
                         <p class="card-text">Wind: 0.00 MPH</p>
                         <p class="card-text">Humidity: 00%</p>
