@@ -51,6 +51,7 @@ function weatherAPIcall(lat, lon) {
 }
 
 function geoAPIcall(city) {
+    console.log(city);
     var query = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
     fetch(query)
         .then(function (response) {
@@ -112,7 +113,7 @@ citySearch.addEventListener("submit", function (event) {
     if (city == "") {
         return;
     }
-    geoAPIcall(event.target.textContent);
+    geoAPIcall(searchBox.value);
     if (!historyArr.includes(city)) {
         historyArr.push(city);
         addHistory(city);
