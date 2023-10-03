@@ -1,18 +1,23 @@
 var apiKey = "ad3c8c81e305ed1e500630813b32f2cd";
 var historyArr = [];
+var isHidden = true;
 var citySearch = document.getElementById("citySearch");
 var searchBox = document.getElementById("searchBox");
 var historyEl = document.getElementById("history");
 var currentWeather = document.getElementById("currentWeatherContent");
 var forecast = document.getElementById("forecast").children;
+var weatherBox = document.getElementById("weatherBox");
 
 function init() {
     loadHistory();
-    geoAPIcall("Chicago");
+    weatherBox.setAttribute("style", "visibility:hidden");
 }
 
 function weatherAPIcall(lat, lon) {
-    console.log(lat, lon);
+    if (isHidden) {
+        weatherBox.setAttribute("style", "visibility:visible");
+        isHidden = false;
+    }
     var currentQuery = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
     fetch(currentQuery)
         .then(function (response) {
@@ -36,7 +41,6 @@ function weatherAPIcall(lat, lon) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             var index = 0;
             for (var i = 4; i < data.list.length; i += 8) {
                 writeWeather(forecast[index], data.list[i], false);
@@ -68,10 +72,10 @@ function geoAPIcall(city) {
 
 function writeWeather(element, result, loc) {
     if (loc) {
-        element.children[0].textContent = `${result.name} ${"date"}`;
+        element.children[0].textContent = `${result.name} ${dayjs.unix(result.dt).format("(MM/DD/YYYY)")}`;
     }
     else {
-        element.children[0].textContent = "(00/00/0000)";
+        element.children[0].textContent = dayjs.unix(result.dt).format("(MM/DD/YYYY)");
     }
     element.children[1].setAttribute("src", `https://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`)
     element.children[2].textContent = `Temp: ${result.main.temp}°F`;
@@ -95,7 +99,7 @@ function loadHistory() {
 
 function addHistory(city) {
     var historyItem = document.createElement("li");
-    historyItem.className = "card text-center bg-secondary list-group-item";
+    historyItem.className = "card text-center bg-secondary list-group-item mt-2 mb-2";
     historyItem.textContent = city;
     historyEl.append(historyItem);
 }
